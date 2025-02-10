@@ -1,4 +1,4 @@
-import { ChevronDown, ChevronUp, Search } from "lucide-react";
+import { ChevronDown, Search } from "lucide-react";
 import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router";
 import { siteConfig } from "../config/siteConfig";

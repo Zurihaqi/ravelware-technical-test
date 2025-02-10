@@ -48,12 +48,7 @@ export const siteConfig = {
     },
     {
       label: "Profile",
-      children: [
-        {
-          label: "Edit Profile",
-          href: "/profile/edit",
-        },
-      ],
+      href: "/profile",
       icon: User,
     },
   ],
@@ -65,17 +60,17 @@ export const siteConfig = {
     },
     {
       label: "Edit Profile",
-      href: "/profile/edit",
+      href: "#",
       icon: UserPen,
     },
     {
       label: "Settings",
-      href: "",
+      href: "#",
       icon: Settings,
     },
     {
       label: "Logout",
-      href: "",
+      href: "#",
       icon: LogOut,
     },
   ],

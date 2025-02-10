@@ -49,12 +49,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "profile",
-        children: [
-          {
-            path: "edit",
-            element: <Profile />,
-          },
-        ],
+        element: <Profile />,
       },
     ],
   },

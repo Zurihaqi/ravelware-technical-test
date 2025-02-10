@@ -15,8 +15,13 @@ function Sidebar({ menuItems }: SidebarProps) {
   const location = useLocation();
 
   const minimizeSidebar = () => setIsMinimized(!isMinimized);
+
   const toggleSubMenu = (label: string) => {
     setExpandedMenu((prev) => (prev === label ? null : label));
+  };
+
+  const isActivePath = (href: string | undefined) => {
+    return location.pathname === href;
   };
 
   return (
@@ -44,7 +49,7 @@ function Sidebar({ menuItems }: SidebarProps) {
         <ul className="flex flex-col flex-grow mx-4">
           {menuItems &&
             menuItems.map((item) => {
-              const isActive = location.pathname === item.href;
+              const isActive = isActivePath(item.href);
               const isExpanded = expandedMenu === item.label;
 
               return (
@@ -68,7 +73,9 @@ function Sidebar({ menuItems }: SidebarProps) {
                   ) : (
                     <button
                       onClick={() => toggleSubMenu(item.label)}
-                      className="cursor-pointer flex w-full items-center p-2 mb-2 text-white rounded-lg hover:bg-gray-700 group"
+                      className={`cursor-pointer flex w-full items-center p-2 mb-2 text-white rounded-lg hover:bg-gray-700 group ${
+                        isExpanded ? "bg-gray-700" : ""
+                      }`}
                     >
                       {isMinimized ? (
                         <item.icon className="mx-auto" />
@@ -89,20 +96,26 @@ function Sidebar({ menuItems }: SidebarProps) {
                   {/* Submenu */}
                   {item.children && isExpanded && (
                     <ul className={isMinimized ? "" : "ml-6"}>
-                      {item.children.map((subItem) => (
-                        <li key={subItem.label}>
-                          <button
-                            onClick={() => navigate(subItem.href)}
-                            className="cursor-pointer flex w-full items-center p-2 mb-2 text-white rounded-lg hover:bg-gray-700 group"
-                          >
-                            {isMinimized ? (
-                              <Circle size={10} className="mx-auto" />
-                            ) : (
-                              <span>{subItem.label}</span>
-                            )}
-                          </button>
-                        </li>
-                      ))}
+                      {item.children.map((subItem) => {
+                        const isSubActive = isActivePath(subItem.href);
+
+                        return (
+                          <li key={subItem.label}>
+                            <button
+                              onClick={() => navigate(subItem.href)}
+                              className={`cursor-pointer flex w-full items-center p-2 mb-2 text-white rounded-lg hover:bg-gray-700 group ${
+                                isSubActive ? "bg-gray-700" : ""
+                              }`}
+                            >
+                              {isMinimized ? (
+                                <Circle size={10} className="mx-auto" />
+                              ) : (
+                                <span>{subItem.label}</span>
+                              )}
+                            </button>
+                          </li>
+                        );
+                      })}
                     </ul>
                   )}
                 </li>
