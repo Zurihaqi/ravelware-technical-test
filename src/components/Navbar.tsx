@@ -75,7 +75,7 @@ function Navbar() {
           </button>
 
           {/* Dropdown menu */}
-          <div className="absolute w-fit left-1/3 divide-y divide-gray-100 rounded-lg shadow-sm bg-slate-800">
+          <div className="z-10 absolute w-fit left-1/3 divide-y divide-gray-100 rounded-lg shadow-sm bg-slate-800">
             <ul className={`py-2 text-sm text-gray-200`}>
               {dropdownOpen &&
                 dropdownMenu.map((item) => {

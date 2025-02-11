@@ -28,7 +28,7 @@ function Sidebar({ menuItems }: SidebarProps) {
     <aside
       className={`border-r-2 border-r-gray-900 transition-all duration-300 fixed lg:sticky lg:translate-x-0 top-0 left-0 ${
         isMinimized ? "w-20" : "w-64"
-      } h-screen bg-slate-800 overflow-y-auto overflow-x-hidden hidden lg:block`}
+      } h-screen bg-slate-800 overflow-y-auto overflow-x-hidden hidden lg:block shrink-0`}
     >
       <div className="space-y-4 flex flex-col h-full">
         {/* Logo */}
