@@ -1,50 +1,52 @@
-# React + TypeScript + Vite
+# Ravelware Technical Test Submission
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Description
+This project is a front-end application that connects to an MQTT broker to handle real-time data updates and visualizations. It utilizes React and Recharts to display fuel usage data in charts and tables.
 
-Currently, two official plugins are available:
+## Features
+- Real-time data updates via MQTT
+- Fuel usage visualization with pie charts
+- Interactive UI with filtering options
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Installation
 
-## Expanding the ESLint configuration
+1. Clone the repository:
+   ```sh
+   git clone https://github.com/Zurihaqi/ravelware-technical-test.git
+   ```
+2. Navigate to the project directory:
+   ```sh
+   cd ravelware-technical-test
+   ```
+3. Install dependencies:
+   ```sh
+   npm install
+   ```
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Environment Variables
+Create a `.env` file in the root directory and add the following variables:
 
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+```
+VITE_MQTT_HOST=
+VITE_MQTT_PORT=
+VITE_WS_PORT=
+VITE_MQTT_USERNAME=
+VITE_MQTT_PASSWORD=
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+Replace the values with your MQTT broker credentials.
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+## Usage
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
+1. Start the development server:
+   ```sh
+   npm run dev
+   ```
+2. Open the application in your browser at `http://localhost:5173`
+
+## Build for Production
+To create a production build:
+```sh
+npm run build
 ```
+
