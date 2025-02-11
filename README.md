@@ -1,7 +1,7 @@
 # Ravelware Technical Test Submission
 
 ## Description
-This project is a front-end application that connects to an MQTT broker to handle real-time data updates and visualizations. It utilizes React and Recharts to display fuel usage data in charts and tables.
+This project is a front-end application that connects to an MQTT broker to handle real-time data updates and visualizations. It utilizes React, Redux, Tailwind and Recharts to display fuel usage data in charts and tables.
 
 ## Features
 - Real-time data updates via MQTT
